@@ -15,7 +15,7 @@ export default function SearchBar({ onSubmit }: SearchBarProps) {
     const searchQuery = formData.get('query') as string;
     if (searchQuery.trim() === '') {
       notifyEmptyQuery();
-      console.log('Empty query submitted');
+      // console.log('Empty query submitted');
       return;
     }
     setQuery(searchQuery);

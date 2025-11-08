@@ -5,5 +5,5 @@ export interface Movie {
   title: string;
   overview: string;
   release_date: string;
-  vote_avarage: number;
+  vote_average: number;
 }

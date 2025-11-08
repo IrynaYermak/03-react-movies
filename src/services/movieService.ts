@@ -6,8 +6,9 @@ interface MovieServiceResponse {
   results: Movie[];
 }
 
-const token = import.meta.env.VITE_TMDB_API_KEY;
-const url = 'https://api.themoviedb.org/3/search/movie';
+const token = import.meta.env.VITE_TMDB_TOKEN;
+axios.defaults.baseURL = 'https://api.themoviedb.org/3/search/movie';
+// axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
 export default async function FetchMovies(
   query: string
@@ -22,7 +23,9 @@ export default async function FetchMovies(
     },
   };
   const response = await axios
-    .get<MovieServiceResponse>(url, options)
+    .get<MovieServiceResponse>('', options)
     .then(res => res.data);
+  console.log(response);
+
   return response;
 }
