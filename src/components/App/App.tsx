@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import toast, { Toaster } from 'react-hot-toast';
-import FetchMovies from '../../services/movieService';
+import fetchMovies from '../../services/movieService';
 import type { Movie } from '../../types/movie';
 import MovieGrid from '../MovieGrid/MovieGrid';
 import Loader from '../Loader/Loader';
@@ -20,13 +20,13 @@ function App() {
       setIsError(false);
       setMovies([]);
       setIsLoading(true);
-      const fetchedMovies = await FetchMovies(query);
-      if (!fetchedMovies.results.length) {
+      const fetchedMovies = await fetchMovies(query);
+      if (!fetchedMovies.length) {
         toast.error('No movies found for your request.');
         return;
       }
 
-      setMovies(fetchedMovies.results);
+      setMovies(fetchedMovies);
     } catch {
       setIsError(true);
     } finally {
