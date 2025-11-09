@@ -1,5 +1,5 @@
 import styles from './SearchBar.module.css';
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 
 const notifyEmptyQuery = () => toast('Please enter your search query.');
@@ -9,17 +9,15 @@ interface SearchBarProps {
 }
 
 export default function SearchBar({ onSubmit }: SearchBarProps) {
-  const [query, setQuery] = useState('');
-
   const handleSubmit = (formData: FormData) => {
     const searchQuery = formData.get('query') as string;
     if (searchQuery.trim() === '') {
       notifyEmptyQuery();
-      // console.log('Empty query submitted');
+
       return;
     }
-    setQuery(searchQuery);
-    onSubmit(query);
+
+    onSubmit(searchQuery);
   };
 
   return (

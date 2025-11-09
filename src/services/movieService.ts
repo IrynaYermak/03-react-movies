@@ -25,7 +25,8 @@ export default async function FetchMovies(
   const response = await axios
     .get<MovieServiceResponse>('', options)
     .then(res => res.data);
-  console.log(response);
+
+  console.log(query);
 
   return response;
 }

@@ -26,6 +26,7 @@ function App() {
         toast.error('No movies found for your request.');
         return;
       }
+
       setMovies(fetchedMovies.results);
     } catch {
       setIsError(true);
