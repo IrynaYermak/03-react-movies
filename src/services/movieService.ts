@@ -26,7 +26,5 @@ export default async function FetchMovies(
     .get<MovieServiceResponse>('', options)
     .then(res => res.data);
 
-  console.log(query);
-
   return response;
 }

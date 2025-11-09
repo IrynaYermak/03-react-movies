@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './App.css';
 import SearchBar from '../SearchBar/SearchBar';
 import toast, { Toaster } from 'react-hot-toast';
 import FetchMovies from '../../services/movieService';
